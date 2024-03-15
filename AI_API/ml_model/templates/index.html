@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <!-- Форма -->
+        <div class="block">
+            <form action="." method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Додано поле для завантаження зображення -->
+                <div class="form-group">
+                    <label for="id_image">Виберіть зображення:</label>
+                    <input type="file" class="form-control-file" id="id_image" name="image" accept="image/*" required>
+                </div>
+                <!-- Додано поле для вибору класу зображення -->
+                <div class="form-group">
+                    <label for="id_class">Введіть номер класу (від 1 до 10):</label>
+                    <input type="number" class="form-control" id="id_class" name="image_class" min="1" max="10" required>
+                </div>
+                <!-- Кнопка відправки форми -->
+                <button type="submit" class="btn btn-primary">Завантажити</button>
+            </form>
+        </div>
+        <!-- Результати -->
+        {% if latest_image %}
+        <div class="block mt-4">
+            <div class="row">
+                <!-- Фото -->
+                <div class="col-md-6">
+                    <img src="{{ latest_image.image.url }}" alt="Uploaded Image" class="img-fluid">
+                </div>
+                <!-- Предбачений і справжній класи -->
+                <div class="col-md-6">
+                    <p><strong>Предбачений клас:</strong></p>
+                    <p>{{ latest_image.image_predicted_class }}</p>
+                    <p><strong>Справжній клас:</strong></p>
+                    <p>{{ latest_image.image_class }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

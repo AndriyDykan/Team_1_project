@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Головна
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            {% for image in img %}
+        <div class="block">
+            <div class="row">
+                <!-- Фото -->
+                <div class="col-md-6">
+                    <img src="{{ image.image.url }}" alt="Uploaded Image" class="img-fluid">
+                </div>
+                <!-- Предбачений і справжній класи -->
+                <div class="col-md-6">
+                    <div class="predicted-class">
+                        <p><strong>Предбачений клас:</strong></p>
+                        <p>{{ image.image_predicted_class }}</p>
+                    </div>
+                    <div class="true-class">
+                        <p><strong>Справжній клас:</strong></p>
+                        <p>{{ image.image_class }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

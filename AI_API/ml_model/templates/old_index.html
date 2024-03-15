@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <!-- Підключення Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Власні CSS-стилі -->
+    <style>
+        /* Ваші CSS-стилі тут */
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .upload-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .upload-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .uploaded-image {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .uploaded-image img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .image-card {
+            margin-bottom: 20px;
+        }
+        .image-card .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+        }
+        .image-card .card-body {
+            text-align: center;
+        }
+        .image-card .card-title {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Ваш контент тут -->
+    <div class="upload-form">
+        <h1>Image Upload Form</h1>
+        <!-- Відображення повідомлення про помилку -->
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+        {% endif %}
+        <form action="." method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- Додано поле для завантаження зображення -->
+    <label for="id_image">Choose an image:</label>
+    <input type="file" id="id_image" name="image" accept="image/*" required>
+    <!-- Додано поле для вибору класу зображення -->
+    <label for="id_class">Enter a number between 1 and 10:</label>
+    <input type="number" id="id_class" name="image_class" min="1" max="10" required>
+    <button type="submit" class="btn btn-primary">Upload</button>
+
+</form>
+
+<!-- Показати помилки форми -->
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+    {% for field, error_list in form.errors.items %}
+        {% for error in error_list %}
+            {{ field }}: {{ error }}
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endif %}
+    </div>
+
+  <!-- Показати збережені зображення -->
+<div class="row">
+    {% for image in img %}
+    <div class="col-lg-4 col-md-6 mb-4 image-card">
+        <div class="card">
+            <img src="{{ image.image.url }}" class="card-img-top" alt="Uploaded Image">
+            <div class="card-body">
+                <!-- Відображення класу зображення -->
+                <h5 class="card-title">{{ image.image_class }}</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+    </div>
+</div>
+
+<!-- Підключення jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Підключення Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
