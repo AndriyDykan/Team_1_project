@@ -1,69 +1,31 @@
+  {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Штучний інтелект{% endblock %}</title>
-    <!-- Підключення Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Власні CSS-стилі -->
-    <style>
-        .navbar-brand {
-            font-size: 24px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .navbar {
-            background-color: #007bff; /* колір фону */
-        }
-
-        .nav-link.active {
-            background-color: #0056b3; /* колір фону */
-            border-color: #0056b3; /* колір рамки */
-        }
-        /* Текст активних вкладок */
-        .nav-link.active, .nav-link.active:hover {
-            color: #fff;
-        }
-
-        /* Стилі для блоку форми і результатів */
-        .block {
-            margin-top: 50px; /* відступ зверху */
-            padding: 20px; /* відступи всередині блоку */
-            border: 2px solid #ccc; /* рамка блоку */
-            border-radius: 10px; /* закруглені кути */
-        }
-        .block img {
-            max-width: 100%; /* фото не виходить за межі блоку */
-            height: auto; /* зберігає пропорції фото */
-        }
-        .block p {
-            margin-bottom: 10px; /* відступ між параграфами */
-            font-size: 16px; /* розмір шрифту */
-            color: #333; /* колір тексту */
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
-<!-- Навігаційна панель -->
+
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <!-- Логотип -->
-        <a class="navbar-brand" href="#">team_project_1</a>
-        <!-- Кнопка "Бургер" для мобільного меню -->
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/logo.png' %}" alt="Логотип" width="50" height="50">
+        </a>
+        <a class="navbar-brand">team_project_1</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Список вкладок -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <!-- Вкладка "Головна" -->
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'ml_model:home' %}">Головна</a>
                 </li>
-                <!-- Вкладка "Про нас" -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">Про нас</a>
                 </li>
@@ -78,15 +40,12 @@
     </div>
 </nav>
 
-<!-- Основний вміст сторінки -->
 <div class="container mt-4">
     {% block content %}
     {% endblock %}
 </div>
 
-<!-- Підключення jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Підключення Bootstrap JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
