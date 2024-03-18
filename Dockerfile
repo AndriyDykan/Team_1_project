@@ -1,4 +1,14 @@
-FROM ubuntu:latest
-LABEL authors="PC"
+FROM python:3.11
 
-ENTRYPOINT ["top", "-b"]
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /code
+COPY requirements.txt /code/
+
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+COPY . /code/
+
+#RUN python AI_API/manage.py runserver 0000:8000
