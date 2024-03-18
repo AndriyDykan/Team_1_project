@@ -24,7 +24,7 @@ def predict_image(model, image_path):
         _, predicted = torch.max(outputs, 1) 
         predicted_class_name = LABEL_NAMES[predicted.item()]
         return predicted_class_name
-        # return predicted.item() 
+         
 
 class VGG(nn.Module):
   def __init__(self, features, output_dim):
@@ -76,11 +76,3 @@ vgg11_layers = get_vgg_layers(vgg11_config, batch_norm=True)
 OUTPUT_DIM = 10
 model = VGG(vgg11_layers, OUTPUT_DIM)
 model.load_state_dict(torch.load('vgg-transfer-model.pt'))
-
-
-uploads_folder = "uploads"
-# image_name = ""
-for image_name in os.listdir(uploads_folder):
-  image_path = os.path.join(uploads_folder, image_name)  
-  prediction = predict_image(model, image_path)
-  print(f"Фото {image_name} містить клас {prediction}")

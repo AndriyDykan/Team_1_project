@@ -15,7 +15,7 @@ For convenient user interaction, a web interface based on the Django framework h
 
 1. Download the project from the repository.
 2. Install all necessary dependencies using `poetry install`.
-3. Run the Django server with the command `python manage.py runserver`.
+3. Run the Django server with the command `python manage.py runserver` or `docker-compose up`.
 4. Follow the link displayed in the console to access the web interface.
 
 ## References
