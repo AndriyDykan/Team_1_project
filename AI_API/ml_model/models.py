@@ -1,8 +1,7 @@
 from django.db import models
 from .model.model import predict_image
 import os
-from PIL import Image as PilImage
-from io import BytesIO
+
 
 class Image(models.Model):
     class_choices = [
@@ -25,14 +24,6 @@ class Image(models.Model):
         return f"{self.get_image_class_display()} - {self.id}"
 
     def save(self, *args, **kwargs):
-        # Створення копії фотографії
         copied_image = self.image
-
-        # Код для передбачення класу зображення
-
-
-        # Передача копії фотографії у функцію для передбачення класу зображення
         self.image_predicted_class = predict_image(copied_image)
-
-        # Збереження оригінальної форми з початковим зображенням
         super().save(*args, **kwargs)

@@ -1,7 +1,7 @@
 <style>
     .navbar-brand {
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 24px !important;
+        font-weight: bold !important;
         color: #fff; /* Білий колір тексту */
     }
 
@@ -10,8 +10,12 @@
     }
 
     .nav-link {
-        border-radius: 20px; /* Завкругленість кнопок */
-    }
+    border-radius: 20px !important; /* Завкругленість кнопок */
+    display: flex; /* Встановлюємо flex контейнер */
+    align-items: center; /* Вирівнюємо елементи по вертикалі */
+    justify-content: center; /* Центруємо текст горизонтально */
+    padding: 8px 30px !important; /* Додаємо відступи */
+}
 
     .nav-link.active {
         background-color: #657ee4;
@@ -24,10 +28,10 @@
     }
 
     .block {
-        margin-top: 50px;
-        padding: 20px;
+        margin-top: 50px !important;
+        padding: 20px !important;
 
-        border-radius: 10px;
+        border-radius: 10px !important;
         background-color: #2e323c; /* Колір фону блоку */
     }
 
@@ -91,6 +95,57 @@
         margin-left: 10px; /* відступ для імені файлу */
         color: #fff; /* Білий колір тексту */
     }
+
+
+
+
+.person-info-container {
+    display: flex; /* Встановлюємо flex контейнер */
+    align-items: center; /* Вирівнюємо елементи по вертикалі */
+    padding: 20px; /* Зовнішні відступи */
+    background-color: #2e323c; /* Колір фону блоку */
+    border-radius: 10px; /* Закруглені кути */
+}
+
+.person-info-container {
+    display: flex; /* Встановлюємо flex контейнер */
+    align-items: center; /* Вирівнюємо елементи по вертикалі */
+    padding: 20px; /* Зовнішні відступи */
+    background-color: #2e323c; /* Колір фону блоку */
+    border-radius: 10px; /* Закруглені кути */
+    margin-bottom: 20px; /* Відступ між блоками */
+}
+
+.image-container {
+    flex: 0 0 auto; /* Запобігаємо розтягненню контейнера */
+    margin-right: 20px; /* Відступ між фото та текстом */
+}
+
+.image-container img {
+    width: 150px; /* Ширина фото */
+    height: 150px; /* Висота фото */
+    border-radius: 50%; /* Заокругленість кутів, робимо круглими */
+    object-fit: cover; /* Забезпечуємо збереження пропорцій */
+    object-position: center; /* Центруємо зображення в контейнері */
+}
+
+
+.text-info {
+    flex: 1; /* Займає весь вільний простір по горизонталі */
+    padding-left: 20px; /* Відступ для тексту */
+    color: #fff !important; /* Колір тексту */
+}
+
+.text-info p {
+    margin: 0; /* Забираємо зовнішні відступи у параграфів */
+}
+
+/* Стилі для розділювальної лінії між блоками person-info */
+.person-info-container:not(:last-child) {
+    border-bottom: 1px solid #fff; /* Лінія з білого кольору */
+    padding-bottom: 20px; /* Відступ знизу */
+}
+
 </style>
 <script>
     function updateFileName(input) {
