@@ -23,10 +23,10 @@ For convenient user interaction, a web interface based on the Django framework h
 - [CIFAR-10 Dataset](https://www.kaggle.com/c/cifar-10)
 
 ## Our team
-[Andriy Dykan](https://github.com/AndriyDykan)
-[Valeria Tovstenko](https://github.com/MsMiracle18)
-[Andriy Mykhailyuk](https://github.com/Andriy22226)
-[Vadim Bezhuk](https://github.com/Vadim-3)
-[Bogdan Kataryna](https://github.com/9-Bogdan)
+- [Andriy Dykan](https://github.com/AndriyDykan)
+- [Valeria Tovstenko](https://github.com/MsMiracle18)
+- [Andriy Mykhailyuk](https://github.com/Andriy22226)
+- [Vadim Bezhuk](https://github.com/Vadim-3)
+- [Bogdan Kataryna](https://github.com/9-Bogdan)
 
 Please ensure to properly set up and configure the environment before running the project.
