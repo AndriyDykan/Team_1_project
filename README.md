@@ -21,6 +21,7 @@ For convenient user interaction, a web interface based on the Django framework h
 ## References
 
 - [CIFAR-10 Dataset](https://www.kaggle.com/c/cifar-10)
+- [Model file](https://drive.google.com/file/d/1Tfu8ZMTBM2OHqWjvdFUCLKliNS5rRyAl/view?usp=drive_link)
 
 ## Our team
 - [Andriy Dykan](https://github.com/AndriyDykan)
