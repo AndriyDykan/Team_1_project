@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "team-1-project"
+version = "0.1.0"
+description = ""
+authors = ["CatCaptures_team"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+torch = "2.1.0"
+torchvision = ">=0.9.0"
+django = "^5.0.3"
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
